@@ -1,0 +1,40 @@
+<%- include('include/header') %>
+<%- include('include/navbar') %>
+
+<main>
+    <h1>Welcome, <%= username %></h1>
+    <h2>User Dashboard</h2>
+
+    <!-- Display user information -->
+    <div>
+        <h3>User Information</h3>
+        <p>Username: <%= username %></p>
+        <p>Email: <%= userEmail %></p>
+    </div>
+
+    <!-- Personalized Vehicle Showcase -->
+    <div>
+        <h3>My Vehicles</h3>
+        <ul>
+            <% userVehicles.forEach(vehicle => { %>
+                <li><%= vehicle.make %> <%= vehicle.model %> (Year: <%= vehicle.year %>, Car Info: <%= vehicle.carInfo %>)</li>
+            <% }); %>
+        </ul>
+    </div>
+
+    <!-- Buy Vehicle Section -->
+    <div>
+        <h3>Buy a Vehicle</h3>
+        <form action="/buy-vehicle" method="POST">
+            <label for="make">Make:</label>
+            <input type="text" id="make" name="make" required>
+            <label for="model">Model:</label>
+            <input type="text" id="model" name="model" required>
+            <label for="year">Year:</label>
+            <input type="number" id="year" name="year" required>
+            <button type="submit">Buy</button>
+        </form>
+    </div>
+</main>
+
+<%- include('include/footer') %>

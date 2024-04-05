@@ -1,0 +1,42 @@
+<%- include('include/header') %>
+<%- include('include/navbar') %>
+
+<main>
+    <h1>Welcome, <%= dealerName %></h1>
+    <h2>Dealership Dashboard</h2>
+
+    <!-- Display dealership information -->
+    <div>
+        <h3>Dealership Information</h3>
+        <p>Name: <%= dealerName %></p>
+        <p>Location: <%= dealerLocation %></p>
+    </div>
+
+    <!-- Add new vehicle form -->
+    <div>
+        <h3>Add New Vehicle</h3>
+        <form action="/dealerships/<%= dealerId %>/vehicles" method="POST">
+            <label for="make">Make:</label>
+            <input type="text" id="make" name="make" required>
+            <label for="model">Model:</label>
+            <input type="text" id="model" name="model" required>
+            <label for="year">Year:</label>
+            <input type="number" id="year" name="year" required>
+            <label for="price">Price:</label>
+            <input type="number" id="price" name="price" required>
+            <button type="submit">Add Vehicle</button>
+        </form>
+    </div>
+
+    <!-- Display list of vehicles -->
+    <div>
+        <h3>Vehicle Inventory</h3>
+        <ul>
+            <% vehicles.forEach(vehicle => { %>
+                <li><%= vehicle.make %> <%= vehicle.model %> (Year: <%= vehicle.year %>, Price: $<%= vehicle.price %>)</li>
+            <% }); %>
+        </ul>
+    </div>
+</main>
+
+<%- include('include/footer') %>
