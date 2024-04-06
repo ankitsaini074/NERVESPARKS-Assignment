@@ -1,4 +1,4 @@
-// routes/userRoutes.js
+
 const express = require('express');
 const router = express.Router();
 const userController = require('../controllers/userController');
@@ -12,7 +12,5 @@ router.put('/update', verifyToken, userController.updateUserProfile);
 
 // GET /users/:id - Get user by ID (admin route)
 router.get('/:id', verifyToken, userController.getUserById);
-
-// More routes as needed...
 
 module.exports = router;
