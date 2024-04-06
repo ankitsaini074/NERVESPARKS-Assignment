@@ -20,4 +20,3 @@ exports.connectToDB = async () => {
 // Get MongoDB instance
 exports.getDBInstance = () => db;
 
-// More database utility functions as needed...
