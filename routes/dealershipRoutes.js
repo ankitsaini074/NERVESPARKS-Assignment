@@ -1,4 +1,4 @@
-// routes/dealershipRoutes.js
+
 const express = require('express');
 const router = express.Router();
 const dealershipController = require('../controllers/dealershipController');
@@ -19,6 +19,6 @@ router.put('/:id/update', verifyToken, checkDealershipOwner, dealershipControlle
 // DELETE /dealerships/:id - Delete dealership by ID (admin route)
 router.delete('/:id', verifyToken, checkUserRole, dealershipController.deleteDealershipById);
 
-// More routes as needed...
+
 
 module.exports = router;
