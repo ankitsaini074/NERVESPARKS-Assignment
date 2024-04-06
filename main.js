@@ -41,33 +41,15 @@ app.use('/css', express.static(path.resolve(__dirname, 'assets/css')));
 app.use('/js', express.static(path.resolve(__dirname, 'assets/js')));
 
 app.get('/', (req, res) => {
-  res.render('index'); // Assuming you have an index.ejs file in your views folder
+  res.render('index'); 
 });
 
 app.get('/login', (req, res) => {
-  // Assuming you have a login.ejs file in the views directory
   res.render('login');
 });
 
 app.get('/register', (req, res) => {
-  // Assuming you have a login.ejs file in the views directory
   res.render('register');
-});
-
-app.post('/register', async (req, res) => {
-  try {
-    // Extract the user data from the request body
-    const { username, email, password } = req.body;
-
-    // Create a new user with the hashed password
-    const newUser = await userController.createUser({ username, email, password });
-
-    console.log('User saved:', newUser);
-    res.status(201).json({ message: 'User registered successfully' });
-  } catch (error) {
-    console.error('Error registering user:', error);
-    res.status(500).json({ error: 'Internal Server Error' });
-  }
 });
 
 // Routes
