@@ -7,4 +7,4 @@ exports.generateToken = (payload) => {
   return jwt.sign(payload, JWT_SECRET, { expiresIn: '1h' });
 };
 
-// More utility functions as needed...
+
